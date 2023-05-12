@@ -224,7 +224,16 @@ plt.ylabel("% of agricultural land")
 plt.legend()
 plt.show()
 
+print(logistic(2030, *param)/1e9)
+print(err.err_ranges(2030, logistic, param, sigma))
 
+# assuming symmetrie estimate sigma
+gdp2030 = logistic(2030, *param)/1e9
+
+low, up = err.err_ranges(2030, logistic, param, sigma)
+sig = np.abs(up-low)/(2.0 * 1e9)
+print()
+print("% of agricultural land 2030", "% of agricultural land2030", "+/-", sig)
 
 
 
